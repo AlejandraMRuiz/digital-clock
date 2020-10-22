@@ -1,6 +1,7 @@
 // digital-clock-js
 
-//third commit:
+
+//fourth commit: displays day & full date
 
 function addZero(i) {
   if (i < 10) {
@@ -11,6 +12,8 @@ function addZero(i) {
 
 function myFunction() {
   var d = new Date();
+  var full_date = document.getElementById("day");
+  full_date.innerHTML = d.toDateString();
   var digiclock = document.getElementById("clock");
   var h = addZero(d.getHours());
   var m = addZero(d.getMinutes());
@@ -39,4 +42,4 @@ function myFunction() {
 //use the following code for this:
 //var d = new Date();
 //document.getElementById("demo").innerHTML = d.toDateString();
-
+//***DONE!***
