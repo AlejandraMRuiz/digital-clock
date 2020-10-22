@@ -1,38 +1,25 @@
 // digital-clock-js
 
-//first commit:
-//function init() {
-//var digiclock = document.getElementById("clock");
-//digiclock.innerHTML = new Date();
-//}
-//window.onload = init;
+//third commit:
 
-
-//second commit:
 function addZero(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-}
-  
-  function myFunction() {
-    var d = new Date();
-    var digiclock = document.getElementById("clock");
-    var h = addZero(d.getHours());
-    var m = addZero(d.getMinutes());
-    var s = addZero(d.getSeconds());
-    digiclock.innerHTML = h + ":" + m + ":" + s;
-
-
-    //What I've tried that hasn't worked:
-
-    //digiclock.innerHTML = setInterval(() => {console.log(d); d++}, 1000);
-    //digiclock.innerHTML = h + ":" + m + ":" + s;
-    //setInterval(() => {new Date(h); new Date(h)++}, 1000);
-    //setInterval(() => {new Date(m); new Date(m)++}, 1000);
-    //setInterval(() => {new Date(s); new Date(s)++}, 1000);
+  if (i < 10) {
+    i = "0" + i;
   }
+  return i;
+}
+
+function myFunction() {
+  var d = new Date();
+  var digiclock = document.getElementById("clock");
+  var h = addZero(d.getHours());
+  var m = addZero(d.getMinutes());
+  var s = addZero(d.getSeconds());
+  digiclock.innerHTML = h + ":" + m + ":" + s;
+  setInterval(() => {myFunction(); h++}, 1000);
+  setInterval(() => {myFunction(); m++}, 1000);
+  setInterval(() => {myFunction(); s++}, 1000);
+}
 
 
 //PLAN:
@@ -45,10 +32,11 @@ function addZero(i) {
 
 //Step (3) incorporate this somehow in order to make it "tick":
 //setInterval(() => {console.log(counter); counter++}, 1000);
-// y o u   a r e   h e r e
+//***DONE!***
 
-//Step (4) display the day of the week.
-
-//Step (5) display the full date in this format:
+//Step (4) display the day of the week and the full date in this format:
 //Wednesday, 21 October 2020
+//use the following code for this:
+//var d = new Date();
+//document.getElementById("demo").innerHTML = d.toDateString();
 
