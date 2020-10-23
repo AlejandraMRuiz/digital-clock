@@ -1,6 +1,31 @@
 /* digital-clock-css */
 
+/* this commit adds styling */
+
 body {
     background-color: slategray;
     color: black;
-   }
+    text-align: center;
+    margin-top: 15%;
+}
+
+#clock {
+    font-size: 850%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 10px;
+}
+
+button  {
+    font-size: 150%;
+    color:black;
+    background-color: grey;
+    margin-top: 30px;
+}
+
+#day   {
+    font-size: 600%;
+    color: #4F4F56;
+    font-family: cursive;
+}
+
+
