@@ -1,6 +1,8 @@
 // digital-clock-js
 
-// this commit displays day & time upon opening the site
+// this commit upgrades styling, cleans code + attempts 12/24hr toggle
+
+let militaryTime = true;
 
 function addZero(i) {
   if (i < 10) {
@@ -9,7 +11,7 @@ function addZero(i) {
   return i;
 }
 
-function myFunction() {
+function currentTime() {
   var d = new Date();
   var full_date = document.getElementById("day");
   full_date.innerHTML = d.toDateString();
@@ -17,13 +19,29 @@ function myFunction() {
   var h = addZero(d.getHours());
   var m = addZero(d.getMinutes());
   var s = addZero(d.getSeconds());
-  digiclock.innerHTML = h + ":" + m + ":" + s;
+  const display12hr = h > 12 ? h - 12 : h;
+  const meridian = h >= 12 ? "PM" : "AM";
+  const time12hr = display12hr + ":" + m + ":" + s + " " + meridian;
+  const time24hr = h + ":" + m + ":" + s;
+
+  if (militaryTime) {
+    digiclock.innerHTML = time24hr;
+  } else  {
+      digiclock.innerHTML = time12hr;
+    }
+
+  const timeFormatBtn = document.getElementById("button");
+  timeFormatBtn.addEventListener("click", toggleTime);
+
+  function toggleTime(click)  {
+    debugger;
+    click.stopPropagation();
+    militaryTime = militaryTime ? false : true;
+    console.log(militaryTime);
+  }
 }
 
-  setInterval(() => {myFunction(); h++, m++, s++}, 1000);
-  
-
-
+setInterval(() => {currentTime()});
 
 
 //PLAN:
@@ -36,5 +54,6 @@ function myFunction() {
 //time without the need of pushing the button.
 //***DONE!***
 
-//Step (2) Get the button to toggle btwn
+//Step (2) Get the button to toggle between
 //12-24hr formats.
+//

@@ -1,17 +1,20 @@
 /* digital-clock-css */
 
-/* this commit displays day & time upon opening the site */
+/* this commit upgrades styling, cleans code + attempts 12/24hr toggle */
+
+/* Google font */
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 body {
-    background-color: slategray;
-    color: black;
+    background-color:black;
+    color: rgb(22, 201, 67);
     text-align: center;
     margin-top: 15%;
 }
 
 #clock {
     font-size: 850%;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     margin-bottom: 10px;
 }
 
@@ -25,7 +28,7 @@ button  {
 #day   {
     font-size: 600%;
     color: #4F4F56;
-    font-family: cursive;
+    font-family: monospace;
 }
 
 
