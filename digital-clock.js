@@ -1,6 +1,6 @@
 // digital-clock-js
 
-// this commit upgrades styling, cleans code + attempts 12/24hr toggle
+// this commit cleans code + successfully executes 12/24hr toggle
 
 let militaryTime = true;
 
@@ -29,19 +29,20 @@ function currentTime() {
   } else  {
       digiclock.innerHTML = time12hr;
     }
-
-  const timeFormatBtn = document.getElementById("button");
-  timeFormatBtn.addEventListener("click", toggleTime);
-
-  function toggleTime(click)  {
-    debugger;
-    click.stopPropagation();
-    militaryTime = militaryTime ? false : true;
-    console.log(militaryTime);
-  }
 }
 
-setInterval(() => {currentTime()});
+function toggleTime(click)  {
+  click.stopPropagation();
+  militaryTime = !militaryTime;
+  console.log(militaryTime);
+}
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  const timeFormatBtn = document.getElementById("button");
+  timeFormatBtn.addEventListener("click", toggleTime);  
+});
+
+setInterval(() => currentTime(), 1000);
 
 
 //PLAN:
@@ -56,4 +57,4 @@ setInterval(() => {currentTime()});
 
 //Step (2) Get the button to toggle between
 //12-24hr formats.
-//
+//***DONE!***

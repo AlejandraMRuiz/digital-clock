@@ -1,11 +1,11 @@
 /* digital-clock-css */
 
-/* this commit upgrades styling, cleans code + attempts 12/24hr toggle */
+/* this commit cleans code + successfully executes 12/24hr toggle */
 
 /* Google font */
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
-body {
+body   {
     background-color:black;
     color: rgb(22, 201, 67);
     text-align: center;
@@ -18,7 +18,7 @@ body {
     margin-bottom: 10px;
 }
 
-button  {
+button {
     font-size: 150%;
     color:black;
     background-color: grey;
