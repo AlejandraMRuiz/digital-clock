@@ -1,6 +1,5 @@
-/* digital-clock-css */
 
-/* this commit cleans code + successfully executes 12/24hr toggle */
+/* this commit displays 12am vs 00am */
 
 /* Google font */
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
@@ -30,5 +29,3 @@ button {
     color: #4F4F56;
     font-family: monospace;
 }
-
-

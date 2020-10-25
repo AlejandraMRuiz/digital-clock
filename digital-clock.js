@@ -1,6 +1,5 @@
-// digital-clock-js
 
-// this commit cleans code + successfully executes 12/24hr toggle
+// this commit displays 12am vs 00am
 
 let militaryTime = true;
 
@@ -19,7 +18,7 @@ function currentTime() {
   var h = addZero(d.getHours());
   var m = addZero(d.getMinutes());
   var s = addZero(d.getSeconds());
-  const display12hr = h > 12 ? h - 12 : h;
+  const display12hr = h == 0 ? 12 : h > 12 ? h - 12 : h;
   const meridian = h >= 12 ? "PM" : "AM";
   const time12hr = display12hr + ":" + m + ":" + s + " " + meridian;
   const time24hr = h + ":" + m + ":" + s;
@@ -43,18 +42,3 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 setInterval(() => currentTime(), 1000);
-
-
-//PLAN:
-
-//Step (0) Separate day & time so day starts 
-//displaying upon opening the site.
-//***DONE!***
-
-//Step (1) Get the clock to display standard
-//time without the need of pushing the button.
-//***DONE!***
-
-//Step (2) Get the button to toggle between
-//12-24hr formats.
-//***DONE!***
