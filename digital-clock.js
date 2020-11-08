@@ -1,44 +1,40 @@
+// this commit corrects all points in code review
 
-// this commit displays 12am vs 00am
+let is24HourTime = true;
 
-let militaryTime = true;
-
-function addZero(i) {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
-}
 
 function currentTime() {
-  var d = new Date();
-  var full_date = document.getElementById("day");
-  full_date.innerHTML = d.toDateString();
-  var digiclock = document.getElementById("clock");
-  var h = addZero(d.getHours());
-  var m = addZero(d.getMinutes());
-  var s = addZero(d.getSeconds());
-  const display12hr = h == 0 ? 12 : h > 12 ? h - 12 : h;
-  const meridian = h >= 12 ? "PM" : "AM";
-  const time12hr = display12hr + ":" + m + ":" + s + " " + meridian;
-  const time24hr = h + ":" + m + ":" + s;
+  const date = new Date();
 
-  if (militaryTime) {
-    digiclock.innerHTML = time24hr;
-  } else  {
-      digiclock.innerHTML = time12hr;
-    }
+  const full_date = document.getElementById("day");
+  full_date.textContent = date.toDateString();
+  const digiClock = document.getElementById("clock");
+
+  const hours = addLeadingZero(date.getHours());
+  const minutes = addLeadingZero(date.getMinutes());
+  const seconds = addLeadingZero(date.getSeconds());
+  const display12hr = hours == 0 ? 12 : hours > 12 ? hours - 12 : hours;
+  const meridian = hours >= 12 ? "PM" : "AM";
+  const time12hr = display12hr + ":" + minutes + ":" + seconds + " " + meridian;
+  const time24hr = hours + ":" + minutes + ":" + seconds;
+
+  digiClock.textContent = is24HourTime ? time24hr : time12hr;
 }
 
-function toggleTime(click)  {
-  click.stopPropagation();
-  militaryTime = !militaryTime;
-  console.log(militaryTime);
+
+function addLeadingZero(number) {
+  return number < 10 ? number = "0" + number : number;
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
+
+window.addEventListener("DOMContentLoaded", () => {
   const timeFormatBtn = document.getElementById("button");
-  timeFormatBtn.addEventListener("click", toggleTime);  
+  timeFormatBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    is24HourTime = !is24HourTime;
+  });  
 });
 
-setInterval(() => currentTime(), 1000);
+
+currentTime();
+setInterval(currentTime, 1000);
