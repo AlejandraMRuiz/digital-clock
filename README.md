@@ -2,7 +2,7 @@
 
 Digital clock application built in Vanilla JS, HTML & CSS. 
 
-Try it [here!](https://codepen.io/alejandramruiz/project/full/ZEwWLm)
+Try it [here!](https://alejandramruiz.github.io/digital-clock/)
 
 <image src ="digital-clock-image.png" width="750" height="400" >
 
